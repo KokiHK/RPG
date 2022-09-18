@@ -8,8 +8,8 @@ public class RPGMain {
 
 	public static void main(String[] args) {
 		
-		Human Fighter = new Fighter();
-		Human Brave = new Brave();
+		Fighter Fighter = new Fighter();
+		Brave Brave = new Brave();
 		Human Wizard = new Wizard();
 		Monster Slime = new Slime();
 		Monster Oak = new Oak();
@@ -17,6 +17,7 @@ public class RPGMain {
 		
 		Brave.attack(Slime);
 		Wizard.attack(Oak);
+		Fighter.attack(Dragon);
 		
 		
 		
