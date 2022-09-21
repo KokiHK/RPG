@@ -2,12 +2,12 @@ package extend.paractice;
 
 
 public abstract class Living {
-	//protected static final String Living = null;
+	
 	protected String name;
 	protected int hp;
 	protected int offensive;
-	protected String skill;
-	//public Living() {	}
+	
+	
 	
 	public String getName() {
 		return name;
@@ -25,7 +25,7 @@ public abstract class Living {
 		this.hp = hp;
 	}
 	
-	public int getOffensive() {
+	public int  getOffensive() {
 		return offensive;
 	}
 	
@@ -33,13 +33,7 @@ public abstract class Living {
 		this.offensive = offensive;
 	}
 
-	public String getSkill() {
-		return skill;
-	}
 	
-	public void setSkill(String skill) {
-		this.skill = skill;
-	}
 	public abstract void attack(Living target);{
 	}
 	

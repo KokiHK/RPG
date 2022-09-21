@@ -1,49 +1,24 @@
 package extend.paractice;
 
-//import java.util.List;
-//import java.util.Random;
-
+import java.util.ArrayList;
+import java.util.List;
 
 public class RPGMain {
 
+	private static final String Fighter = null;
+	private static final String Brave = null;
+	private static final String Wizard = null;
+
 	public static void main(String[] args) {
-		
-		Fighter Fighter = new Fighter();
-		Brave Brave = new Brave();
-		Human Wizard = new Wizard();
-		Monster Slime = new Slime();
-		Monster Oak = new Oak();
-		Monster Dragon = new Doragon();
-		
-		Brave.attack(Slime);
-		Wizard.attack(Oak);
-		Fighter.attack(Dragon);
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		//List<String> Humanlist = new Arraylist<>();
-		//Humanlist.add("勇者");
-		//Humanlist.add("魔法使い");
-		//Humanlist.add("戦士");
-		
-		//List<String> Monserlist = new Arraylist<>();
-		//Monserlist.add("スライム");
-		//Monserlist.add("オーク");
-		//Monserlist.add("ドラゴン");
-		
-		//int index = new Random().nextInt(list.size());
-		
-		
-		
-		
-		// TODO 自動生成されたメソッド・スタブ
 
+		List<String> HumanList = new ArrayList<>();
+
+		HumanList.add(Fighter);
+		HumanList.add(Brave);
+		HumanList.add(Wizard);
+
+		HumanList.get(0);
+
+		
 	}
-
 }

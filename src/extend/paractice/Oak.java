@@ -11,7 +11,7 @@ public  class  Oak extends Monster{
 		
 		@Override
 		public void attack(Living target) {
-		System.out.println("モンスターのターン"+this.name + "が"+ this.skill +"で攻撃!" + target + "に"+ Rand.get(offensive) +"のダメージ！");
+		System.out.println(this.name + "が"+ this.skill +"で攻撃!" + target + "に"+ Rand.get() +"のダメージ！");
 	}
 
 }
