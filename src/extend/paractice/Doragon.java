@@ -1,6 +1,6 @@
 package extend.paractice;
 
-public class  Doragon extends Monster{
+public class  Doragon extends Monster{public String skill;
 	public Doragon() {
 		this.name = "ドラゴン";
 		this.hp = 30;

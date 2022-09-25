@@ -1,6 +1,6 @@
 package extend.paractice;
 
-public  class Brave extends Human{
+public  class Brave extends Human{public String skill;
 
 	public Brave() {
 		this.name = "勇者";

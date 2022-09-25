@@ -1,6 +1,6 @@
 package extend.paractice;
 
-public  class  Oak extends Monster{
+public  class  Oak extends Monster{public String skill;
 
 	public Oak() {
 		this.name = "オーク";
