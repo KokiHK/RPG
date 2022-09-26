@@ -13,8 +13,11 @@ public class Fighter extends Human {public String skill;
 
 	@Override
 	public void attack(Living target) {
-		System.out.println( this.name + "が"+ this.skill +"で攻撃!" + target + "に"+ Rand.get() +"のダメージ！");
-		// TODO 自動生成されたメソッド・スタブ
+		int hit = (int)Math.round(offensive*Rand.get());
+		int h = getHp() -hit;
+		setHp(h);
+		System.out.println( this.name + "が"+ this.skill +"で攻撃!" + target + "に"+ offensive*Rand.get() +"のダメージ！");
+		
 		
 	}
 

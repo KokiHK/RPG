@@ -24,17 +24,32 @@ public class RPGMain {
 		Mlist.add("スライム");
 		Mlist.add("ドラゴン");
 
-		System.out.println("人間のターン！");
+		Living human = Hlist.get(Rand.get());
+		Living monster = Mlist.get(Rand.get());
+		
+		//人間とモンスターのパラメータの引数を指定する。B.hp で勇者のHPを引き出すイメージ
+		while(h1.hp >0 && h2.hp >0 && h3.hp && m1 >0 && m2 >0 && m3 >0) {
 
-		Living target = Mlist.get(0);
+			System.out.println("人間のターン！");
+		
+		Living target = monster;
 		h1.attack(target);
 		target.setHp(target.getHp() - Rand.get() * h1.offensive);
+		
+		 
+			
+			
+		else if(taraget <= 0) {
+				list.remove(target);}//targetのHPがなくなればターゲットをリストから除居
+		
+				
+		
 
 		System.out.println("モンスターのターン!");
 
 		m1.attack(target);
 		target.setHp(target.getHp() - Rand.get() * m1.offensive);
-		//抽象メソッドをHumanクラスから具体化しそれぞれのクラスでメソッドとして機能させる
+		}//抽象メソッドをHumanクラスから具体化しそれぞれのクラスでメソッドとして機能させる
 
 		//勇者が剣で攻撃！オークに80のダメージを与えた。
 
@@ -81,4 +96,6 @@ public class RPGMain {
 		//ドラゴンは倒れた。
 		//勇者達は勝利した！
 	}
+
+	
 }
