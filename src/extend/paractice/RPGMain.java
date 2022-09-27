@@ -28,8 +28,8 @@ public class RPGMain {
 		Mlist.add(Doragon);
 
 		//各リストから任意取得する
-		Living human = Hlist.get(Rand.get());
-		Living monster = Mlist.get(Rand.get());
+		Human human = Hlist.get(Rand.get(Hlist.size()));
+		Monster monster = Mlist.get(Rand.get(Mlist.size()));
 		//戦闘開始　
 		do {
 		if (Brave.hp > 0) {
@@ -78,11 +78,11 @@ public class RPGMain {
 			Mlist.remove(Slime);
 			System.out.println("スライムは倒れた");
 
-		}}while(human.hp==0 || monster.hp==0 );
+		}}while((Brave.hp==0 && Wizard.hp ==0 && Fighter.hp ==0) || (Oak.hp==0 && Doragon.hp ==0 && Slime.hp ==0) );
 		
-		if(human.hp >0) {
+		if(Brave.hp >0 || Wizard.hp>0 || Fighter.hp >0) {
 			System.out.println("人間の勝利です");
-		}else if(monster.hp >0) {
+		}else if(Oak.hp >0 || Doragon.hp >0 || Slime.hp >0) {
 			System.out.println("モンスターの勝利です");
 		}
 	}

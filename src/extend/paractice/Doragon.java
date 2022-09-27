@@ -5,17 +5,17 @@ public class Doragon extends Monster {
 
 	public Doragon() {
 		this.name = "ドラゴン";
-		this.hp = 30;
-		this.offensive = 4;
+		this.hp = 220;
+		this.offensive = 15;
 		this.skill = "炎";
 	}
 
 	@Override
 	public void attack(Living target) {
-		int hit = offensive * Rand.get();
+		int hit = offensive * Rand.get(10);
 		int h = target.getHp() - hit;
 		target.setHp(h);
-		System.out.println(this.name + "が" + this.skill + "で攻撃!" + target + "に" + offensive * Rand.get() + "のダメージ！");
+		System.out.println(this.name + "が" + this.skill + "で攻撃!" + target.name + "に" + offensive * Rand.get(10) + "のダメージ！");
 
 	}
 
