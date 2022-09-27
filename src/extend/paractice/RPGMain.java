@@ -30,7 +30,7 @@ public class RPGMain {
 		//各リストから任意取得する
 		Human human = Hlist.get(Rand.get(Hlist.size()));
 		Monster monster = Mlist.get(Rand.get(Mlist.size()));
-		//戦闘開始　
+		//戦闘開始　人間かモンスターどちらかがリストからすべて消えたら終わり
 		do {
 			if (Brave.hp > 0) {
 				System.out.println("人間のターン！");
