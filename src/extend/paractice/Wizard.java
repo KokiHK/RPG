@@ -1,25 +1,22 @@
 package extend.paractice;
 
-public class Wizard extends Human{public String skill;
+public class Wizard extends Human {
+	public String skill;
 
 	public Wizard() {
 		this.name = "魔法使い";
 		this.hp = 58;
-		this.offensive =6;
+		this.offensive = 6;
 		this.skill = "魔法";
 	}
-		
-		@Override
-		public void attack(Living target) {
-		System.out.println( this.name + "が"+ this.skill +"で攻撃!" + target + "に"+ Rand.get() +"のダメージ！");
+
+	@Override
+	public void attack(Living target) {
+		int hit = offensive * Rand.get();
+		int h = target.getHp() - hit;
+		target.setHp(h);
+		System.out.println(this.name + "が" + this.skill + "で攻撃!" + target + "に" + offensive * Rand.get() + "のダメージ！");
+
 	}
-	
-	
-		
-	}
 
-	// TODO 自動生成されたコンストラクター・スタブ
-	
-		
-
-
+}

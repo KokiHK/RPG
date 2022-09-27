@@ -6,96 +6,122 @@ import java.util.List;
 public class RPGMain {
 
 	public static void main(String[] args) {
-		//キャラクターのパラメータをオブジェクト化する
-		Brave h1 = new Brave();
-		Wizard h2 = new Wizard();
-		Fighter h3 = new Fighter();
-		Oak m1 = new Oak();
-		Doragon m2 = new Doragon();
-		Slime m3 = new Slime();
+		//キャラクタークラスをオブジェクト化する
+		//Human human = new Human();
+		//Monster monster = new Monster();
+		Human Brave = new Brave();
+		Human Wizard = new Wizard();
+		Human Fighter = new Fighter();
+		Monster Oak = new Oak();
+		Monster Doragon = new Doragon();
+		Monster Slime = new Slime();
 
-		List<String> Hlist = new ArrayList<>();
-		Hlist.add("勇者");
-		Hlist.add("戦士");
-		Hlist.add("魔法使い");
+		//各グループをリスト化
+		List<Human> Hlist = new ArrayList<>();
+		Hlist.add(Brave);
+		Hlist.add(Wizard);
+		Hlist.add(Fighter);
 
-		List<String> Mlist = new ArrayList<>();
-		Mlist.add("オーク");
-		Mlist.add("スライム");
-		Mlist.add("ドラゴン");
+		List<Monster> Mlist = new ArrayList<>();
+		Mlist.add(Oak);
+		Mlist.add(Slime);
+		Mlist.add(Doragon);
 
+		//各リストから任意取得する
 		Living human = Hlist.get(Rand.get());
 		Living monster = Mlist.get(Rand.get());
-		
-		//人間とモンスターのパラメータの引数を指定する。B.hp で勇者のHPを引き出すイメージ
-		while(h1.hp >0 && h2.hp >0 && h3.hp && m1 >0 && m2 >0 && m3 >0) {
 
+		do {
+		if (Brave.hp > 0) {
 			System.out.println("人間のターン！");
-		
-		Living target = monster;
-		h1.attack(target);
-		target.setHp(target.getHp() - Rand.get() * h1.offensive);
-		
-		 
-			
-			
-		else if(taraget <= 0) {
-				list.remove(target);}//targetのHPがなくなればターゲットをリストから除居
-		
-				
-		
+			Brave.attack(monster);
+		} else if (Brave.hp <= 0) {
+			Hlist.remove(Brave);
+			System.out.println("勇者は倒れた");
 
-		System.out.println("モンスターのターン!");
+		}
+		if (Wizard.hp > 0) {
+			System.out.println("人間のターン！");
+			Wizard.attack(monster);
+		} else if (Wizard.hp <= 0) {
+			Hlist.remove(Wizard);
+			System.out.println("魔法使いは倒れた");
 
-		m1.attack(target);
-		target.setHp(target.getHp() - Rand.get() * m1.offensive);
-		}//抽象メソッドをHumanクラスから具体化しそれぞれのクラスでメソッドとして機能させる
+		}
+		if (Fighter.hp > 0) {
+			System.out.println("人間のターン！");
+			Fighter.attack(monster);
+		} else if (Fighter.hp <= 0) {
+			Hlist.remove(Fighter);
+			System.out.println("戦士は倒れた");
+		}
+		if (Oak.hp > 0) {
+			System.out.println("モンスターのターン！");
+			Oak.attack(human);
+		} else if (Oak.hp <= 0) {
+			Mlist.remove(Oak);
+			System.out.println("オークは倒れた");
 
-		//勇者が剣で攻撃！オークに80のダメージを与えた。
+		}
+		if (Doragon.hp > 0) {
+			System.out.println("モンスターのターン！");
+			Doragon.attack(human);
+		} else if (Doragon.hp <= 0) {
+			Mlist.remove(Doragon);
+			System.out.println("ドラゴンは倒れた");
 
-		//モンスターのターン！
-		//スライムが体当たりで攻撃！勇者に32のダメージを与えた。
-		//人間のターン！
-		//魔法使いが魔法で攻撃！ドラゴンに60のダメージを与えた。
-		//モンスターのターン！
-		//ドラゴンが炎で攻撃！魔法使いに90のダメージを与えた。
-		//人間のターン！
-		//勇者が剣で攻撃！オークに0のダメージを与えた。
-		//モンスターのターン！
-		//オークが槍で攻撃！勇者に0のダメージを与えた。
-		//人間のターン！
-		//戦士が斧で攻撃！スライムに80のダメージを与えた。
-		//モンスターのターン！
-		//スライムが体当たりで攻撃！勇者に72のダメージを与えた。
-		//人間のターン！
-		//魔法使いが魔法で攻撃！オークに120のダメージを与えた。
-		//オークは倒れた。
-		//モンスターのターン！
-		//スライムが体当たりで攻撃！勇者に72のダメージを与えた。
-		//人間のターン！
-		//勇者が剣で攻撃！スライムに20のダメージを与えた。
-		//スライムは倒れた。
-		//モンスターのターン！
-		//ドラゴンが炎で攻撃！勇者に120のダメージを与えた。
-		//勇者は倒れた。
-		//人間のターン！
-		//戦士が斧で攻撃！ドラゴンに80のダメージを与えた。
-		//モンスターのターン！
-		//ドラゴンが炎で攻撃！魔法使いに0のダメージを与えた。
-		//人間のターン！
-		//戦士が斧で攻撃！ドラゴンに140のダメージを与えた。
-		//モンスターのターン！
-		//ドラゴンが炎で攻撃！魔法使いに75のダメージを与えた。
-		//魔法使いは倒れた。
-		//人間のターン！
-		//戦士が斧で攻撃！ドラゴンに0のダメージを与えた。
-		//モンスターのターン！
-		//ドラゴンが炎で攻撃！戦士に90のダメージを与えた。
-		//人間のターン！
-		//戦士が斧で攻撃！ドラゴンに100のダメージを与えた。
-		//ドラゴンは倒れた。
-		//勇者達は勝利した！
+		}
+		if (Slime.hp > 0) {
+			System.out.println("モンスターのターン！");
+			Slime.attack(human);
+		} else if (Slime.hp <= 0) {
+			Mlist.remove(Slime);
+			System.out.println("スライムは倒れた");
+
+		}}while(human.hp==0 || monster.hp==0 );
 	}
-
-	
 }
+//勇者が剣で攻撃！オークに80のダメージを与えた。
+
+//モンスターのターン！
+//スライムが体当たりで攻撃！勇者に32のダメージを与えた。
+//人間のターン！
+//魔法使いが魔法で攻撃！ドラゴンに60のダメージを与えた。
+//モンスターのターン！
+//ドラゴンが炎で攻撃！魔法使いに90のダメージを与えた。
+//人間のターン！
+//勇者が剣で攻撃！オークに0のダメージを与えた。
+//モンスターのターン！
+//オークが槍で攻撃！勇者に0のダメージを与えた。
+//人間のターン！
+//戦士が斧で攻撃！スライムに80のダメージを与えた。
+//モンスターのターン！
+//スライムが体当たりで攻撃！勇者に72のダメージを与えた。
+//人間のターン！
+//魔法使いが魔法で攻撃！オークに120のダメージを与えた。
+//オークは倒れた。
+//モンスターのターン！
+//スライムが体当たりで攻撃！勇者に72のダメージを与えた。
+//人間のターン！
+//勇者が剣で攻撃！スライムに20のダメージを与えた。
+//スライムは倒れた。
+//モンスターのターン！
+//ドラゴンが炎で攻撃！勇者に120のダメージを与えた。
+//勇者は倒れた。
+//人間のターン！
+//戦士が斧で攻撃！ドラゴンに80のダメージを与えた。
+//モンスターのターン！
+//ドラゴンが炎で攻撃！魔法使いに0のダメージを与えた。
+//人間のターン！
+//戦士が斧で攻撃！ドラゴンに140のダメージを与えた。
+//モンスターのターン！
+//ドラゴンが炎で攻撃！魔法使いに75のダメージを与えた。
+//魔法使いは倒れた。
+//人間のターン！
+//戦士が斧で攻撃！ドラゴンに0のダメージを与えた。
+//モンスターのターン！
+//ドラゴンが炎で攻撃！戦士に90のダメージを与えた。
+//人間のターン！
+//戦士が斧で攻撃！ドラゴンに100のダメージを与えた。
+//ドラゴンは倒れた。
+//勇者達は勝利した！
