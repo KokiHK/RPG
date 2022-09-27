@@ -32,57 +32,59 @@ public class RPGMain {
 		Monster monster = Mlist.get(Rand.get(Mlist.size()));
 		//戦闘開始　
 		do {
-		if (Brave.hp > 0) {
-			System.out.println("人間のターン！");
-			Brave.attack(monster);
-		} else if (Brave.hp <= 0) {
-			Hlist.remove(Brave);
-			System.out.println("勇者は倒れた");
+			if (Brave.hp > 0) {
+				System.out.println("人間のターン！");
+				Brave.attack(monster);
+			} else if (Brave.hp <= 0) {
+				Hlist.remove(Brave);
+				System.out.println("勇者は倒れた");
 
-		}
-		if (Wizard.hp > 0) {
-			System.out.println("人間のターン！");
-			Wizard.attack(monster);
-		} else if (Wizard.hp <= 0) {
-			Hlist.remove(Wizard);
-			System.out.println("魔法使いは倒れた");
+			}
+			if (Oak.hp > 0) {
+				System.out.println("モンスターのターン！");
+				Oak.attack(human);
+			} else if (Oak.hp <= 0) {
+				Mlist.remove(Oak);
+				System.out.println("オークは倒れた");
+			}
+			if (Wizard.hp > 0) {
+				System.out.println("人間のターン！");
+				Wizard.attack(monster);
+			} else if (Wizard.hp <= 0) {
+				Hlist.remove(Wizard);
+				System.out.println("魔法使いは倒れた");
 
-		}
-		if (Fighter.hp > 0) {
-			System.out.println("人間のターン！");
-			Fighter.attack(monster);
-		} else if (Fighter.hp <= 0) {
-			Hlist.remove(Fighter);
-			System.out.println("戦士は倒れた");
-		}
-		if (Oak.hp > 0) {
-			System.out.println("モンスターのターン！");
-			Oak.attack(human);
-		} else if (Oak.hp <= 0) {
-			Mlist.remove(Oak);
-			System.out.println("オークは倒れた");
+			}
+			if (Doragon.hp > 0) {
+				System.out.println("モンスターのターン！");
+				Doragon.attack(human);
+			} else if (Doragon.hp <= 0) {
+				Mlist.remove(Doragon);
+				System.out.println("ドラゴンは倒れた");
 
-		}
-		if (Doragon.hp > 0) {
-			System.out.println("モンスターのターン！");
-			Doragon.attack(human);
-		} else if (Doragon.hp <= 0) {
-			Mlist.remove(Doragon);
-			System.out.println("ドラゴンは倒れた");
+			}
+			if (Fighter.hp > 0) {
+				System.out.println("人間のターン！");
+				Fighter.attack(monster);
+			} else if (Fighter.hp <= 0) {
+				Hlist.remove(Fighter);
+				System.out.println("戦士は倒れた");
 
-		}
-		if (Slime.hp > 0) {
-			System.out.println("モンスターのターン！");
-			Slime.attack(human);
-		} else if (Slime.hp <= 0) {
-			Mlist.remove(Slime);
-			System.out.println("スライムは倒れた");
+			}
+			if (Slime.hp > 0) {
+				System.out.println("モンスターのターン！");
+				Slime.attack(human);
+			} else if (Slime.hp <= 0) {
+				Mlist.remove(Slime);
+				System.out.println("スライムは倒れた");
 
-		}}while((Brave.hp==0 && Wizard.hp ==0 && Fighter.hp ==0) || (Oak.hp==0 && Doragon.hp ==0 && Slime.hp ==0) );
-		
-		if(Brave.hp >0 || Wizard.hp>0 || Fighter.hp >0) {
+			}
+		} while ((Brave.hp == 0 && Wizard.hp == 0 && Fighter.hp == 0)
+				|| (Oak.hp == 0 && Doragon.hp == 0 && Slime.hp == 0));
+
+		if (Brave.hp > 0 || Wizard.hp > 0 || Fighter.hp > 0) {
 			System.out.println("人間の勝利です");
-		}else if(Oak.hp >0 || Doragon.hp >0 || Slime.hp >0) {
+		} else if (Oak.hp > 0 || Doragon.hp > 0 || Slime.hp > 0) {
 			System.out.println("モンスターの勝利です");
 		}
 	}
