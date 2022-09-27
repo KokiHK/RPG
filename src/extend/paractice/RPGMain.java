@@ -30,7 +30,7 @@ public class RPGMain {
 		//各リストから任意取得する
 		Living human = Hlist.get(Rand.get());
 		Living monster = Mlist.get(Rand.get());
-
+		//戦闘開始　
 		do {
 		if (Brave.hp > 0) {
 			System.out.println("人間のターン！");
@@ -79,6 +79,12 @@ public class RPGMain {
 			System.out.println("スライムは倒れた");
 
 		}}while(human.hp==0 || monster.hp==0 );
+		
+		if(human.hp >0) {
+			System.out.println("人間の勝利です");
+		}else if(monster.hp >0) {
+			System.out.println("モンスターの勝利です");
+		}
 	}
 }
 //勇者が剣で攻撃！オークに80のダメージを与えた。
