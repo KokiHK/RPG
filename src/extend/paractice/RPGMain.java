@@ -31,11 +31,14 @@ public class RPGMain {
 		Human human = Hlist.get(Rand.get(Hlist.size()));
 		Monster monster = Mlist.get(Rand.get(Mlist.size()));
 		//戦闘開始　人間かモンスターどちらかがリストからすべて消えたら終わり
+		//戦闘ループ確認のためdo-while 使用、if でhpの分岐を表現。
 		do {
-			if (Brave.hp > 0) {
+			if(Brave.hp > 0) {
 				System.out.println("人間のターン！");
+			
 				Brave.attack(monster);
-			} else if (Brave.hp <= 0) {
+			}
+			else if(Brave.hp <= 0) {
 				Hlist.remove(Brave);
 				System.out.println("勇者は倒れた");
 
@@ -80,7 +83,7 @@ public class RPGMain {
 
 			}
 		} while ((Brave.hp == 0 && Wizard.hp == 0 && Fighter.hp == 0)
-				|| (Oak.hp == 0 && Doragon.hp == 0 && Slime.hp == 0));
+				&& (Oak.hp == 0 && Doragon.hp == 0 && Slime.hp == 0));
 
 		if (Brave.hp > 0 || Wizard.hp > 0 || Fighter.hp > 0) {
 			System.out.println("人間の勝利です");
