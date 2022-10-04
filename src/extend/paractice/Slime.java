@@ -5,8 +5,8 @@ public class Slime extends Monster {
 
 	public Slime() {
 		this.name = "スライム";
-		this.hp = 700;
-		this.offensive = 2;
+		this.hp = 40;
+		this.offensive = 4;
 		this.skill = "体当たり";
 	}
 

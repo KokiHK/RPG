@@ -6,7 +6,7 @@ public class Brave extends Human {
 	public Brave() {
 		this.name = "勇者";
 		this.hp = 300;
-		this.offensive = 4;
+		this.offensive = 13;
 		this.skill = "剣";
 	}
 
