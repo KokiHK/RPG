@@ -27,7 +27,7 @@ public abstract class HumanO extends Living {
 	
 	public void attack(Living target) {
 		System.out.println("人間のターン！");
-		System.out.println(name + "が" + skill + "で攻撃!" + target + "に" + Rand.get(10) * this.offensive + "のダメージ！");
+		System.out.println(name + "が" + skill + "で攻撃!" + target + "に" + Rand.get() * this.offensive + "のダメージ！");
 	}
 	
 

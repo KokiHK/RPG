@@ -23,7 +23,7 @@ public abstract class MonsterO extends Living {
 		
 		public void attack(Living target) {
 		System.out.println("モンスターのターン！");
-		System.out.println(name + "が" + skill + "で攻撃!" + target + "に" + Rand.get(10)* this.offensive + "のダメージ！");
+		System.out.println(name + "が" + skill + "で攻撃!" + target + "に" + Rand.get() * this.offensive + "のダメージ！");
 	}
 
 		

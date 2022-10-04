@@ -5,8 +5,8 @@ public class Doragon extends Monster {
 
 	public Doragon() {
 		this.name = "ドラゴン";
-		this.hp = 120;
-		this.offensive = 17;
+		this.hp = 220;
+		this.offensive = 15;
 		this.skill = "炎";
 	}
 

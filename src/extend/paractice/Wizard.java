@@ -5,8 +5,8 @@ public class Wizard extends Human {
 
 	public Wizard() {
 		this.name = "魔法使い";
-		this.hp = 160;
-		this.offensive = 5;
+		this.hp = 180;
+		this.offensive = 6;
 		this.skill = "魔法";
 	}
 

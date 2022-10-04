@@ -27,66 +27,112 @@ public class RPGMain {
 		Mlist.add(Slime);
 		Mlist.add(Doragon);
 
-		System.out.println("モンスターの群れが現れた");
-
-		while (!Hlist.isEmpty() && !Mlist.isEmpty()) {
-
-			Human human = Hlist.get(Rand.get(Hlist.size()));
-			Monster monster = Mlist.get(Rand.get(Mlist.size()));
-			
-			//whileで空でないことが既知なためここでは選択時にif文を挿入しない
-
-			if (!Hlist.isEmpty()) {
+		//各リストから任意取得する
+		Human human = Hlist.get(Rand.get(Hlist.size()));
+		Monster monster = Mlist.get(Rand.get(Mlist.size()));
+		//戦闘開始　人間かモンスターどちらかがリストからすべて消えたら終わり
+		//戦闘ループ確認のためdo-while 使用、if でhpの分岐を表現。
+		do {
+			if(Brave.hp > 0) {
 				System.out.println("人間のターン！");
-				human.attack(monster);
-
-				if (Mlist.contains(Oak) && Oak.hp <= 0) {
-					Mlist.remove(Oak);
-					System.out.println("オークは倒れた");
-				}
-				if (Mlist.contains(Slime) && Slime.hp <= 0) {
-					Mlist.remove(Slime);
-					System.out.println("スライムは倒れた");
-				}
-
-				if (Mlist.contains(Doragon) && Doragon.hp <= 0) {
-					Mlist.remove(Doragon);
-					System.out.println("ドラゴンは倒れた");
-				}
+			
+				Brave.attack(monster);
 			}
+			else if(Brave.hp <= 0) {
+				Hlist.remove(Brave);
+				System.out.println("勇者は倒れた");
 
-			human = Hlist.get(Rand.get(Hlist.size()));
-			if (!Mlist.isEmpty()) {
-				monster = Mlist.get(Rand.get(Mlist.size()));
-
-				//モンスターがいない場合でも取得してしまうエラーを回避する
-				//攻撃した側は必ずHPが減らない仕様のため今回は受け手側のみif文挿入した。
-				
+			}
+			if (Oak.hp > 0) {
 				System.out.println("モンスターのターン！");
-				monster.attack(human);
-
-				if (Hlist.contains(Brave) && Brave.hp <= 0) {
-					Hlist.remove(Brave);
-					System.out.println("勇者は倒れた");
-				}
-
-				if (Hlist.contains(Wizard) && Wizard.hp <= 0) {
-					Hlist.remove(Wizard);
-					System.out.println("魔法使いは倒れた");
-				}
-
-				if (Hlist.contains(Fighter) && Fighter.hp <= 0) {
-					Hlist.remove(Fighter);
-					System.out.println("戦士は倒れた");
-				}
+				Oak.attack(human);
+			} else if (Oak.hp <= 0) {
+				Mlist.remove(Oak);
+				System.out.println("オークは倒れた");
 			}
+			if (Wizard.hp > 0) {
+				System.out.println("人間のターン！");
+				Wizard.attack(monster);
+			} else if (Wizard.hp <= 0) {
+				Hlist.remove(Wizard);
+				System.out.println("魔法使いは倒れた");
 
-		}
+			}
+			if (Doragon.hp > 0) {
+				System.out.println("モンスターのターン！");
+				Doragon.attack(human);
+			} else if (Doragon.hp <= 0) {
+				Mlist.remove(Doragon);
+				System.out.println("ドラゴンは倒れた");
 
-		if (Hlist.isEmpty()) {
+			}
+			if (Fighter.hp > 0) {
+				System.out.println("人間のターン！");
+				Fighter.attack(monster);
+			} else if (Fighter.hp <= 0) {
+				Hlist.remove(Fighter);
+				System.out.println("戦士は倒れた");
+
+			}
+			if (Slime.hp > 0) {
+				System.out.println("モンスターのターン！");
+				Slime.attack(human);
+			} else if (Slime.hp <= 0) {
+				Mlist.remove(Slime);
+				System.out.println("スライムは倒れた");
+
+			}
+		} while ((Brave.hp == 0 && Wizard.hp == 0 && Fighter.hp == 0)
+				&& (Oak.hp == 0 && Doragon.hp == 0 && Slime.hp == 0));
+
+		if (Brave.hp > 0 || Wizard.hp > 0 || Fighter.hp > 0) {
+			System.out.println("人間の勝利です");
+		} else if (Oak.hp > 0 || Doragon.hp > 0 || Slime.hp > 0) {
 			System.out.println("モンスターの勝利です");
-		} else {
-			System.out.println("勇者達の勝利です");
 		}
 	}
 }
+//勇者が剣で攻撃！オークに80のダメージを与えた。
+
+//モンスターのターン！
+//スライムが体当たりで攻撃！勇者に32のダメージを与えた。
+//人間のターン！
+//魔法使いが魔法で攻撃！ドラゴンに60のダメージを与えた。
+//モンスターのターン！
+//ドラゴンが炎で攻撃！魔法使いに90のダメージを与えた。
+//人間のターン！
+//勇者が剣で攻撃！オークに0のダメージを与えた。
+//モンスターのターン！
+//オークが槍で攻撃！勇者に0のダメージを与えた。
+//人間のターン！
+//戦士が斧で攻撃！スライムに80のダメージを与えた。
+//モンスターのターン！
+//スライムが体当たりで攻撃！勇者に72のダメージを与えた。
+//人間のターン！
+//魔法使いが魔法で攻撃！オークに120のダメージを与えた。
+//オークは倒れた。
+//モンスターのターン！
+//スライムが体当たりで攻撃！勇者に72のダメージを与えた。
+//人間のターン！
+//勇者が剣で攻撃！スライムに20のダメージを与えた。
+//スライムは倒れた。
+//モンスターのターン！
+//ドラゴンが炎で攻撃！勇者に120のダメージを与えた。
+//勇者は倒れた。
+//人間のターン！
+//戦士が斧で攻撃！ドラゴンに80のダメージを与えた。
+//モンスターのターン！
+//ドラゴンが炎で攻撃！魔法使いに0のダメージを与えた。
+//人間のターン！
+//戦士が斧で攻撃！ドラゴンに140のダメージを与えた。
+//モンスターのターン！
+//ドラゴンが炎で攻撃！魔法使いに75のダメージを与えた。
+//魔法使いは倒れた。
+//人間のターン！
+//戦士が斧で攻撃！ドラゴンに0のダメージを与えた。
+//モンスターのターン！
+//ドラゴンが炎で攻撃！戦士に90のダメージを与えた。
+//人間のターン！
+//戦士が斧で攻撃！ドラゴンに100のダメージを与えた。
+//ドラゴンは倒れた。
+//勇者達は勝利した！

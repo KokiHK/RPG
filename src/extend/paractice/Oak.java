@@ -6,7 +6,7 @@ public class Oak extends Monster {
 	public Oak() {
 		this.name = "オーク";
 		this.hp = 80;
-		this.offensive = 9;
+		this.offensive = 12;
 		this.skill = "槍";
 	}
 
