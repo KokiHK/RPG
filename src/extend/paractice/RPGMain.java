@@ -36,7 +36,7 @@ public class RPGMain {
 			
 			//whileで空でないことが既知なためここでは選択時にif文を挿入しない
 
-			if (!Hlist.isEmpty()) {
+			
 				System.out.println("人間のターン！");
 				human.attack(monster);
 
@@ -53,7 +53,7 @@ public class RPGMain {
 					Mlist.remove(Doragon);
 					System.out.println("ドラゴンは倒れた");
 				}
-			}
+			
 
 			human = Hlist.get(Rand.get(Hlist.size()));
 			if (!Mlist.isEmpty()) {
