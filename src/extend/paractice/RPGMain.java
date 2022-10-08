@@ -33,27 +33,25 @@ public class RPGMain {
 
 			Human human = Hlist.get(Rand.get(Hlist.size()));
 			Monster monster = Mlist.get(Rand.get(Mlist.size()));
-			
+
 			//whileで空でないことが既知なためここでは選択時にif文を挿入しない
 
-			
-				System.out.println("人間のターン！");
-				human.attack(monster);
+			System.out.println("人間のターン！");
+			human.attack(monster);
 
-				if (Mlist.contains(Oak) && Oak.hp <= 0) {
-					Mlist.remove(Oak);
-					System.out.println("オークは倒れた");
-				}
-				if (Mlist.contains(Slime) && Slime.hp <= 0) {
-					Mlist.remove(Slime);
-					System.out.println("スライムは倒れた");
-				}
+			if (Mlist.contains(Oak) && Oak.hp <= 0) {
+				Mlist.remove(Oak);
+				System.out.println("オークは倒れた");
+			}
+			if (Mlist.contains(Slime) && Slime.hp <= 0) {
+				Mlist.remove(Slime);
+				System.out.println("スライムは倒れた");
+			}
 
-				if (Mlist.contains(Doragon) && Doragon.hp <= 0) {
-					Mlist.remove(Doragon);
-					System.out.println("ドラゴンは倒れた");
-				}
-			
+			if (Mlist.contains(Doragon) && Doragon.hp <= 0) {
+				Mlist.remove(Doragon);
+				System.out.println("ドラゴンは倒れた");
+			}
 
 			human = Hlist.get(Rand.get(Hlist.size()));
 			if (!Mlist.isEmpty()) {
@@ -61,7 +59,7 @@ public class RPGMain {
 
 				//モンスターがいない場合でも取得してしまうエラーを回避する
 				//攻撃した側は必ずHPが減らない仕様のため今回は受け手側のみif文挿入した。
-				
+
 				System.out.println("モンスターのターン！");
 				monster.attack(human);
 
